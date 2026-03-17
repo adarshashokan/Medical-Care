@@ -1,0 +1,601 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #7c3aed;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --dark-bg: #1f2937;
+    --light-bg: #f9fafb;
+    --border-color: #e5e7eb;
+    --text-color: #111827;
+    --text-light: #6b7280;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: 60px 0;
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.section h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+/* Forms */
+.form-container,
+.reminder-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.consultation-form,
+.reminder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #f0f7ff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: var(--light-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+    width: auto;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+    width: auto;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 60px;
+}
+
+.results-section.hidden {
+    display: none;
+}
+
+.results-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.department-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-lg);
+}
+
+.department-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.department-card span {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.department-card p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Doctors List */
+.doctors-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.doctor-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.doctor-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.doctor-info {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doctor-info strong {
+    color: var(--text-color);
+}
+
+.rating {
+    color: #fbbf24;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.distance {
+    background: #d1fae5;
+    color: #047857;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.availability {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.doctor-card .btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Appointment Form */
+.appointment-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.appointment-form.hidden {
+    display: none;
+}
+
+.appointment-form h3 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+/* Reminders List */
+.reminders-list {
+    margin-top: 40px;
+}
+
+.reminders-list h3 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.reminders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.reminder-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--success-color);
+    position: relative;
+}
+
+.reminder-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.reminder-detail {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.reminder-detail strong {
+    color: var(--text-color);
+}
+
+.reminder-status {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.reminder-card .btn-danger {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Appointments Container */
+.appointments-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.appointment-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+}
+
+.appointment-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.appointment-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.appointment-detail:last-of-type {
+    border-bottom: none;
+}
+
+.appointment-detail strong {
+    color: var(--text-color);
+}
+
+.appointment-detail span {
+    color: var(--text-light);
+}
+
+.appointment-status {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-upcoming {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-completed {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 30px 0;
+    margin-top: 60px;
+    border-top: 2px solid var(--border-color);
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer p:last-child {
+    margin-bottom: 0;
+    color: #d1d5db;
+    font-size: 13px;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.success-message {
+    background: #d1fae5;
+    border: 2px solid var(--success-color);
+    color: #047857;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.error-message {
+    background: #fee2e2;
+    border: 2px solid var(--danger-color);
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .NavMenu {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .section h1 {
+        font-size: 28px;
+    }
+
+    .doctors-list,
+    .reminders-container,
+    .appointments-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container,
+    .reminder-form-container {
+        padding: 25px;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        padding: 10px;
+        background: var(--light-bg);
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 40px 0;
+    }
+
+    .section h1 {
+        font-size: 24px;
+    }
+
+    .form-container,
+    .reminder-form-container {
+        padding: 20px;
+    }
+
+    .department-card {
+        padding: 20px;
+    }
+
+    .doctor-card,
+    .reminder-card,
+    .appointment-card {
+        padding: 15px;
+    }
+}
